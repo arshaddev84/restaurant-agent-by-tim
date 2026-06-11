@@ -1,26 +1,102 @@
-from langchain_ollama.llms import OllamaLLM
 from langchain_core.prompts import ChatPromptTemplate
+from langchain_ollama import ChatOllama
+
 from vector import retriever
 
-model = OllamaLLM(model="llama3.2")
+# -------------------------------
+# Configuration
+# -------------------------------
 
-template = """
+MODEL_NAME = "llama3.2:1b"
+
+TEMPLATE = """
 You are an exeprt in answering questions about a pizza restaurant
 
-Here are some relevant reviews: {reviews}
+Relevant reviews:
+{reviews}
 
-Here is the question to answer: {question}
+Question:
+{question}
 """
-prompt = ChatPromptTemplate.from_template(template)
-chain = prompt | model
 
-while True:
-    print("\n\n-------------------------------")
-    question = input("Ask your question (q to quit): ")
-    print("\n\n")
-    if question == "q":
-        break
+# -------------------------------
+# Model Setup
+# -------------------------------
+
+def create_model():
+    return ChatOllama(model=MODEL_NAME)
+
+def create_chain(model):
     
-    reviews = retriever.invoke(question)
-    result = chain.invoke({"reviews": reviews, "question": question})
-    print(result)
+    prompt = ChatPromptTemplate.from_template(TEMPLATE)
+
+    return prompt | model
+
+# -------------------------------
+# Retrieval
+# -------------------------------
+
+def retrieve_reviews(question):
+
+    docs = retriever.invoke(question)
+
+    return "\n\n".join(
+        doc.page_content for doc in docs
+    )
+
+# -------------------------------
+# Response Generation
+# -------------------------------
+
+def generate_answer(chain, question, reviews):
+
+    result =  chain.invoke({
+        "reviews": reviews,
+        "question": question
+    })
+
+    return result.content.strip()
+
+# -------------------------------
+# Main Application
+# -------------------------------
+
+def main():
+
+    print("Loading model...")
+
+    model = create_model()
+
+    chain = create_chain(model)
+
+    print("Restaurant Review Assistant Ready!")
+
+    while True:
+
+        print("\n-------------------------------")
+
+        question = input(
+            "Ask your question (q to quit): "
+        ).strip()
+
+        if question.lower() == "q":
+            print("Goodbye!")
+            break
+
+        reviews = retrieve_reviews(question)
+
+        result = generate_answer(
+            chain,
+            question,
+            reviews
+        )
+
+        print("\nAnswer:")
+        print(result)
+
+# -------------------------------
+# Entry Point
+# -------------------------------
+
+if __name__ == "__main__":
+    main()
