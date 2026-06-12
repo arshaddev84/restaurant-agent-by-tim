@@ -1,4 +1,13 @@
+```text
 # LocalAIAgentWithRAG
+
+## Contributions Made
+
+* Refactored code into modular functions
+* Updated deprecated LangChain imports
+* Improved readability and maintainability
+* Added reusable configuration constants
+* Improved vector database initialization flow
 
 # Restaurant Review RAG Application
 
@@ -58,13 +67,6 @@ Run the application:
 python main.py
 ```
 
-## Improvements Made
-
-* Refactored code into modular functions
-* Updated deprecated LangChain imports
-* Improved readability and maintainability
-* Added reusable configuration constants
-* Improved vector database initialization flow
-
 ## Credits
 Original tutorial/project by Tim Ruscica.
+```
