@@ -1,5 +1,5 @@
 ```text
-# LocalAIAgentWithRAG
+# RestaurantAgentByTim
 
 ## Contributions Made
 
