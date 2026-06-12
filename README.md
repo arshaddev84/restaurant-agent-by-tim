@@ -49,19 +49,23 @@ project/
 ## Setup
 
 Install dependencies:
-
+```
 ```bash
 pip install -U langchain langchain-core langchain-ollama langchain-chroma pandas
 ```
 
+```text
 Install Ollama models:
+```
 
 ```bash
 ollama pull llama3.2:1b
 ollama pull all-minilm:l6-v2
 ```
 
+```text
 Run the application:
+```
 
 ```bash
 python main.py
@@ -69,4 +73,3 @@ python main.py
 
 ## Credits
 Original tutorial/project by Tim Ruscica.
-```
