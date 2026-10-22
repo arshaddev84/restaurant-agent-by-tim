@@ -1,16 +1,18 @@
-```text
 # RestaurantAgentByTim
 
 ## Contributions Made
 
+```text
 * Refactored code into modular functions
 * Updated deprecated LangChain imports
 * Improved readability and maintainability
 * Added reusable configuration constants
 * Improved vector database initialization flow
+```
 
 # Restaurant Review RAG Application
 
+```text
 A simple Retrieval-Augmented Generation (RAG) application built with:
 
 * LangChain
@@ -19,26 +21,32 @@ A simple Retrieval-Augmented Generation (RAG) application built with:
 * Local LLMs
 
 This project allows users to ask questions about restaurant reviews using semantic search and local language models.
+```
 
 ## Features
 
+```text
 * Local embeddings using Ollama
 * Chroma vector database
 * Semantic review retrieval
 * Modularized project structure
 * Updated LangChain package imports
 * Compatible with modern LangChain ecosystem
+```
 
 ## Technologies Used
 
+```text
 * Python
 * LangChain
 * Ollama
 * ChromaDB
 * Pandas
+```
 
 ## Project Structure
 
+```text
 project/
 │
 ├── main.py
@@ -46,6 +54,7 @@ project/
 ├── realistic_restaurant_reviews.csv
 └── chroma_langchain_db/
 ```
+
 ```bash
 ## Setup
 
