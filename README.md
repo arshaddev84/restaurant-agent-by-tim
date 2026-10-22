@@ -1,7 +1,6 @@
 # RestaurantAgentByTim
 
 ## Contributions Made
-
 ```text
 * Refactored code into modular functions
 * Updated deprecated LangChain imports
@@ -10,8 +9,7 @@
 * Improved vector database initialization flow
 ```
 
-# Restaurant Review RAG Application
-
+## Restaurant Review RAG Application
 ```text
 A simple Retrieval-Augmented Generation (RAG) application built with:
 
@@ -24,7 +22,6 @@ This project allows users to ask questions about restaurant reviews using semant
 ```
 
 ## Features
-
 ```text
 * Local embeddings using Ollama
 * Chroma vector database
@@ -35,7 +32,6 @@ This project allows users to ask questions about restaurant reviews using semant
 ```
 
 ## Technologies Used
-
 ```text
 * Python
 * LangChain
@@ -45,7 +41,6 @@ This project allows users to ask questions about restaurant reviews using semant
 ```
 
 ## Project Structure
-
 ```text
 project/
 │
@@ -55,9 +50,8 @@ project/
 └── chroma_langchain_db/
 ```
 
-```bash
 ## Setup
-
+```bash
 Install dependencies:
 pip install -U langchain langchain-core langchain-ollama langchain-chroma pandas
 
